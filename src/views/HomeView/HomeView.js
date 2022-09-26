@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
-
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import { getDragon } from '../../services/dragonApi';
 import { ImageSwiper } from '../../components/ImageSwiper/ImageSwiper';
 import { Container } from '../../components/Container/Container';
+import BtnOpenModal from '../../components/BtnOpenModal/BtnOpenModal';
+
+import s from './HomeView.module.css';
 export const DragonView = () => {
-  const [dradon, setDragon] = useState([]);
+  const [dragon, setDragon] = useState([]);
   const [page, setPage] = useState(0);
   const [images, setImage] = useState([]);
-  console.log(page);
   useEffect(() => {
     getDragon()
       .then(data => {
@@ -16,21 +19,44 @@ export const DragonView = () => {
       })
       .catch(error => console.log(error));
   }, [page]);
-
   return (
     <div>
       <Container>
-        <ImageSwiper images={images} />
-        <div>
-          <h2>{dradon.name}</h2>
-          <p>{dradon.description}</p>
-          <p>{dradon.dry_mass_kg}</p>
-          <p>{dradon.dry_mass_lb}</p>
-          <p>{dradon.first_flight}</p>
-          <a href={dradon.wikipedia}>wikipedia</a>
+        <div className={s.wrap}>
+          <div className={s.topComponent}>
+            <div>
+              <h2 className={s.name}>{dragon.name}</h2>
+              <p>{dragon.first_flight}</p>
+            </div>
+            <div className={s.btn}>
+              <KeyboardDoubleArrowLeftIcon
+                onClick={() => setPage(0)}
+                color="action"
+                size="20"
+              />
+              <KeyboardDoubleArrowRightIcon
+                onClick={() => setPage(1)}
+                color="action"
+                size="20"
+              />
+            </div>
+          </div>
+
+          <ImageSwiper images={images} />
+          <div className={s.downComponent}>
+            <div>
+              <a href={dragon.wikipedia}>wikipedia</a>
+            </div>
+            <BtnOpenModal
+              description={dragon.description}
+              name={dragon.name}
+              mase={dragon.dry_mass_kg}
+            />
+          </div>
         </div>
-        <button onClick={() => setPage(1)}> Show more</button>
       </Container>
     </div>
   );
 };
+
+export default DragonView;

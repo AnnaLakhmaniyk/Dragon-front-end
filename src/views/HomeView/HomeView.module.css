@@ -1,0 +1,36 @@
+.wrap{
+    margin-top: 30px;
+    min-width: 300px;
+    background-color: rgb(252, 252, 252);
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 5px 9px -2px hsl(207deg 7% 49% / 60%);
+}
+.name{  
+   text-align: center;
+font-weight: 400;
+    font-size: 22px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    color: #52555F;
+    margin-bottom: 10px;
+
+}
+.btn{
+    cursor: pointer;
+}
+
+.topComponent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.downComponent{
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+}
