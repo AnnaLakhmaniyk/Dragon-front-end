@@ -1,16 +1,50 @@
-// import { Routes, Route } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { Suspense, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCurrentUser } from '../redax/auth/auth-operations';
+import { getLoder } from '../redax/auth/auth-selector';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import PublicRoute from './Routes/PublicRoute';
+import PrivateRoute from './Routes/PrivateRoute';
 import Header from './Header/Header';
-import AuthView from 'views/AuthView/AuthView';
-// import { DragonView } from '../views/HomeView/HomeView';
+import AuthView from '../views/AuthView/AuthView';
+import DragonView from '../views/HomeView/HomeView';
+import Loader from './Loder/Loder';
 
 export const App = () => {
+  const isLoder = useSelector(getLoder);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
   return (
     <div>
-      <Suspense>
+      {isLoder && <Loader />}
+      <Suspense fallback={<Loader />}>
         <Header />
-        <AuthView />
-        {/* <DragonView /> */}
+        <Routes>
+          <Route
+            path="/authorization"
+            element={
+              <PublicRoute>
+                <AuthView />
+              </PublicRoute>
+            }
+          />
+
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute>
+                <DragonView />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/authorization" />}></Route>
+        </Routes>
+        <ToastContainer autoClose={3000} />
       </Suspense>
     </div>
   );
