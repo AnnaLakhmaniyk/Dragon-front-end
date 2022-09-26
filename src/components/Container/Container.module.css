@@ -1,12 +1,9 @@
 .container {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 20px;
-
-
-    color: var(--black);
-    background-color: var(--primeryBgColor);
-    font-family: var(--mainFont);
+ margin: 0 auto;
+    padding: 0 30px;
+    color: #000;
+    background-color: #F2F5FC;
+    font-family: "Roboto";
 }
 
 @media screen and (max-width: 320px) {
