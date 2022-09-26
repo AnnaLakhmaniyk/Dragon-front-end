@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut } from './auth-operations';
+import { register, logIn, logOut, fetchCurrentUser } from './auth-operations';
 
 const initialState = {
-  user: { name: null, email: null },
+  email: '',
   token: null,
   isLoggedIn: false,
+  inLoder: false,
 };
 
 const authSlice = createSlice({
@@ -12,21 +13,54 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [register.fulfilled](state, { payload }) {
-      state.user = payload.user;
+      state.email = payload.email;
       state.token = payload.token;
-      state.isLoggedIn = true;
+      state.isLoggedIn = false;
+      state.inLoder = false;
+    },
+    [register.pending](state) {
+      state.inLoder = true;
+    },
+    [register.rejected](state) {
+      state.inLoder = false;
     },
 
-    [logIn.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
+    [logIn.fulfilled](state, { payload }) {
+      state.email = payload.email;
+      state.token = payload.token;
       state.isLoggedIn = true;
+      state.inLoder = false;
+    },
+    [logIn.pending](state) {
+      state.inLoder = true;
+    },
+    [logIn.rejected](state) {
+      state.inLoder = false;
     },
 
     [logOut.fulfilled](state) {
-      state.user = { name: null, email: null };
+      state.email = '';
       state.token = null;
       state.isLoggedIn = false;
+      state.inLoder = false;
+    },
+    [logOut.pending](state) {
+      state.inLoder = true;
+    },
+    [logOut.rejected](state) {
+      state.inLoder = false;
+    },
+
+    [fetchCurrentUser.fulfilled](state, { payload }) {
+      state.email = payload.email;
+      state.isLoggedIn = true;
+      state.inLoder = false;
+    },
+    [fetchCurrentUser.pending](state) {
+      state.inLoder = true;
+    },
+    [fetchCurrentUser.rejected](state) {
+      state.inLoder = false;
     },
   },
 });

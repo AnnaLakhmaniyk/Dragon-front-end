@@ -6,7 +6,7 @@ import authSlice from './auth/auth-slise';
 const persistConfig = {
   key: 'auth',
   storage,
-  blacklist: ['user', 'isLoggedIn'],
+  blacklist: ['email', 'isLoggedIn'],
 };
 
 export const store = configureStore({
