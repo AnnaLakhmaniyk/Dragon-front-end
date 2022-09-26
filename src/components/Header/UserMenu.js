@@ -5,15 +5,18 @@ import s from './Header.module.css';
 
 function UserMenu() {
   const dispatch = useDispatch();
-  const name = useSelector(getUsername);
+  const email = useSelector(getUsername);
 
   return (
     <div className={s.user}>
-      <span className={s.span}>Wellcome,{name}</span>
+      <div className={s.avatar}>
+        <p>{email[0]?.toUpperCase()}</p>
+      </div>
+      <div className={s.line}></div>
       <button
         type="button"
         onClick={() => dispatch(logOut())}
-        className={s.button}
+        className={s.exitBtn}
       >
         exit
       </button>

@@ -1,79 +1,70 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 50px;
-    background-color: rgb(187, 184, 187);
+ padding-top: 13px;
+ padding-bottom: 13px;
+    background-color: rgb(187 184 187 / 93%);
     box-shadow: 0 5px 9px -2px hsl(207deg 7% 49% / 60%);
+  
 }
-
-.wrap {
+.wrap{
+    padding-left: 20px;
+    padding-right: 20px;
+ margin: 0 auto;
+display: flex;
+justify-content: space-between;
+}
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
+        justify-content: space-between;
 }
-
-.unactive {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
-    font-size: 24px;
-    text-decoration: none;
-    padding: 10px 15px;
-    min-width: 80px;
-    color: #0a0909;
-}
-
-.active {
+.logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 500;
-    font-size: 24px;
-    text-decoration: none;
-    padding: 10px 15px;
-    min-width: 80px;
-    border-radius: 5px;
-
-    background-color: brown;
-    ;
-    box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
-    color: #fff;
-
+    height: 32px;
 }
 
-.button {
-    width: 50px;
-    min-height: 30px;
-    text-transform: uppercase;
+.user{
+    display: flex;
+}
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #F5F6FA;
+    color: #52555F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+
+}
+.line {
+    height: 100%;
+    border-right: 1px solid #E0E5EB;
+}
+
+.exitBtn {
+    margin-left: 20px;
+    font-size: 20px;
+    line-height: 14px;
     cursor: pointer;
-
-    border: 1px solid #000;
-    border-radius: 5px;
-
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.33;
+    display: block;
+    border: none;
+    color: #E0E5EB;
+    background-color: transparent;
+}
+.exitBtn:hover,
+.exitBtn:focus {
+    color:#007aff;
+    transform: scale(1.03);
 }
 
-.button:hover,
-.button:focus {
-    background-color: brown;
-    color: aliceblue;
-    box-shadow: 0 5px 9px -2px hsl(207deg 7% 49% / 60%);
-}
-
-.span {
-    font-weight: 500;
-    font-size: 24px;
-    text-decoration: none;
-
-    min-width: 80px;
-    color: brown;
-    margin-right: 20px;
-
-}
-
-.user {
-    padding: 10px 15px;
-    box-shadow: 0 5px 9px -2px hsl(207deg 7% 49% / 60%);
+.exitBtn:hover {
+    text-decoration: underline;
 }
