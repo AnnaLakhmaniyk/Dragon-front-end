@@ -16,10 +16,9 @@ export const register = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/auth/registration', user);
-      console.log(data);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(toast.error(`oops, something went wrong`));
     }
   }
 );
@@ -32,7 +31,7 @@ export const logIn = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(toast.error(`oops, something went wrong`));
     }
   }
 );
