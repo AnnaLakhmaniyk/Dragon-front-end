@@ -80,6 +80,13 @@ width: 109px;
     background: #007aff;;
     transform: scale(1.03);
 }
+.message {
+    font-family: 10px;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+}
 
 
 @media screen and (min-width: 768px) {
