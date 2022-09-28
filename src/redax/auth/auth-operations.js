@@ -18,7 +18,7 @@ export const register = createAsyncThunk(
       const { data } = await axios.post('/auth/registration', user);
       return data;
     } catch (error) {
-      return rejectWithValue(toast.error(`oops, something went wrong`));
+      return rejectWithValue();
     }
   }
 );
@@ -31,7 +31,7 @@ export const logIn = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      return rejectWithValue(toast.error(`oops, something went wrong`));
+      return rejectWithValue(console.log(error.message));
     }
   }
 );
@@ -61,9 +61,7 @@ export const fetchCurrentUser = createAsyncThunk(
       const { data } = await axios.post('/auth/current');
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(
-        toast.error(`oops, something went wrong`)
-      );
+      return thunkAPI.rejectWithValue();
     }
   }
 );
