@@ -61,7 +61,7 @@ justify-content: space-between;
 }
 .exitBtn:hover,
 .exitBtn:focus {
-    color:#007aff;
+    color:#4979e0;
     transform: scale(1.03);
 }
 
