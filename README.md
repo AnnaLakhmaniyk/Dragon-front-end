@@ -1,3 +1,7 @@
+
+[Hosted application link](https://space-dragon.herokuapp.com/)
+
+
 This project was created with the help of [Create React App](https://github.com/facebook/create-react-app).
 
 ## Preparing to use the project
