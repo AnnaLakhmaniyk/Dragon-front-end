@@ -1,7 +1,12 @@
 import axios from 'axios';
 
-const getDragon = async page => {
+const getDragon = async () => {
   const data = await axios.get(`/dragons`);
   return data.data;
 };
-export { getDragon };
+
+const getDragonsById = async id => {
+  const data = await axios.get(`/dragons/${id}`);
+  return data;
+};
+export { getDragon, getDragonsById };
