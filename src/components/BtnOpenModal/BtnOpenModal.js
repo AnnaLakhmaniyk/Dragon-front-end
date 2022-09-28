@@ -29,7 +29,7 @@ const ExpandMore = styled(props => {
   }),
 }));
 
-const BtnOpenModal = ({ description, name, mase }) => {
+const BtnOpenModal = ({ dragon, size }) => {
   const [expanded, setExpanded] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -56,11 +56,12 @@ const BtnOpenModal = ({ description, name, mase }) => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            <p>{name}</p>
-            <p>mase:{mase}kg</p>
+            <p>{dragon.name}</p>
+            <p>mase:{dragon.dry_mass_kg} kg</p>
+            <p>size: {size} meters</p>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 3 }}>
-            {description}
+            {dragon.description}
           </Typography>
         </Box>
       </Modal>
@@ -68,9 +69,8 @@ const BtnOpenModal = ({ description, name, mase }) => {
   );
 };
 BtnOpenModal.propTypes = {
-  description: PropTypes.string,
-  name: PropTypes.string,
-  mase: PropTypes.number,
+  dragon: PropTypes.object,
+  size: PropTypes.number,
 };
 
 export default BtnOpenModal;
