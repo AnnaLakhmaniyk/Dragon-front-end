@@ -18,17 +18,14 @@
 
 }
 
-.text {
-    font-weight: 400;
-    font-size: 12px;
+.text {  
+     font-size: 15px;
     line-height: 14px;
-    letter-spacing: 0.04em;
     color: #52555f;
-    margin-bottom: 16px;
 }
 
 .inputBlock {
-    margin-top: 32px;
+    margin-top: 30px;
     
 }
 
@@ -36,13 +33,10 @@
     width: 100%;
         border: 1px solid #CED2D1;
         padding: 15px 20px;
-        margin-bottom: 15px;
+        margin-bottom: 18px;
 
 }
 
-.input:not(:last-of-type) {
-    margin-bottom: 24px;
-}
 
 input:hover {
     border-color: #0957ff;
@@ -53,12 +47,11 @@ justify-content: center;
 }
 
 .btn {
-width: 109px;
+width: 100%;
     height: 44px;
     background: #f5f6fb;
     border: transparent;
-    border-radius: 14px;
-    
+    border-radius: 4px;
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
@@ -77,15 +70,22 @@ width: 109px;
 .btn:hover,
 .btn:focus {
     color: #fff;
-    background: #007aff;;
+    background: #007aff;
     transform: scale(1.03);
 }
 .message {
+    padding: 5px;
     font-family: 10px;
     font-size: 12px;
     line-height: 12px;
     letter-spacing: 0.04em;
-    margin-top: 4px;
+    width: fit-content;
+    color: #007aff;
+    border: 1px solid #CED2D1;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    
+
 }
 
 
@@ -96,17 +96,11 @@ width: 109px;
         }
     .form {
             min-width: 350px;}
- 
+ .input {
+     margin-bottom: 22px;
+
+ }
     .text {
         font-size: 15px;}
-     
 
-    .btn {
-        width: 119px;
-    }
-
-    .link {
-        margin-left: auto;
-        margin-right: auto;
-    }
 }

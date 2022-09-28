@@ -135,7 +135,6 @@ export default function AuthView() {
       toast.warn('Please enter email and password for registration');
       return;
     }
-
     dispatch(register({ email, password }));
     toast.success(`wellcom  ${email?.split('@')[0]} and now log in`);
   };
