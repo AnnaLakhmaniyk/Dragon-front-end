@@ -18,6 +18,7 @@ export const DragonView = () => {
   return (
     <Container>
       <div className={s.wrap}>
+        <p>jdvbfsedfhjbvdjhfkgnbjkdfgnbkjdfnbjkdnfjkbn</p>
         <ul>
           {dragon.map(({ _id, name }) => (
             <li key={_id} className={s.item}>
