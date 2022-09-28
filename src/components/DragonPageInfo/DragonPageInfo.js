@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { ImageSwiper } from '../ImageSwiper/ImageSwiper';
 import { Container } from '../Container/Container';
 import BtnOpenModal from '../BtnOpenModal/BtnOpenModal';
+import Loader from 'components/Loader/Loder';
 import { getDragonsById } from '../../services/dragonApi';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import s from './DragonPageInfo.module.css';
@@ -12,18 +13,26 @@ const DragonPageInfo = () => {
   const { dragonId } = useParams();
   const [dragon, setDragon] = useState({});
   const [images, setImages] = useState([]);
+  const [size, setSize] = useState(Number);
+  const [status, setStatus] = useState(false);
   const backHome = location?.state?.from || '/';
   useEffect(() => {
+    setStatus(true);
     getDragonsById(dragonId)
       .then(data => {
         setDragon(data.data);
         setImages(data.data.flickr_images);
+        setSize(data.data.heat_shield.size_meters);
+        setStatus(false);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        setStatus(false);
+      });
   }, [dragonId]);
-
   return (
     <Container>
+      {status && <Loader />}
       <div className={s.container}>
         <Link to={backHome}>
           <button type="button" className={s.button}>
@@ -50,11 +59,7 @@ const DragonPageInfo = () => {
                     wikipedia
                   </a>
                 </div>
-                <BtnOpenModal
-                  description={dragon.description}
-                  name={dragon.name}
-                  mase={dragon.dry_mass_kg}
-                />
+                <BtnOpenModal dragon={dragon} size={size} />
               </div>
             </div>
             <Outlet />
