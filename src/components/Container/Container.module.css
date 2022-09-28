@@ -4,28 +4,31 @@
     color: #000;
     background-color: #F2F5FC;
     font-family: "Roboto";
+    background-image: url("../../img/5b5ad50911039164dad02b6e.png");
+     background-repeat: no-repeat;
+    background-position: right top -3px;
 }
 
 @media screen and (max-width: 320px) {
     .container {
-        width: 320px;
+       max-width: 320px;
     }
 }
 
 @media screen and (min-width: 480px) {
     .container {
-        width: 480px;
+        min-width: 480px;
     }
 }
 
 @media screen and (min-width: 768px) {
     .container {
-        width: 768px;
+        min-width: 768px;
     }
 }
 
 @media screen and (min-width: 1280px) {
     .container {
-        width: 1280px;
+        min-width: 1280px;
     }
 }

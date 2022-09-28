@@ -5,11 +5,13 @@ import { fetchCurrentUser } from '../redax/auth/auth-operations';
 import { getLoder } from '../redax/auth/auth-selector';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import PublicRoute from './Routes/PublicRoute';
 import PrivateRoute from './Routes/PrivateRoute';
 import Header from './Header/Header';
 import AuthView from '../views/AuthView/AuthView';
 import DragonView from '../views/HomeView/HomeView';
+import DragonPageInfo from './DragonPageInfo/DragonPageInfo';
 import Loader from './Loder/Loder';
 
 export const App = () => {
@@ -42,6 +44,14 @@ export const App = () => {
               </PrivateRoute>
             }
           />
+          <Route
+            path="/home/:dragonId"
+            element={
+              <PrivateRoute>
+                <DragonPageInfo />
+              </PrivateRoute>
+            }
+          ></Route>
           <Route path="*" element={<Navigate to="/authorization" />}></Route>
         </Routes>
         <ToastContainer autoClose={3000} />
