@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { fetchCurrentUser } from '../redax/auth/auth-operations';
 import { getLoder } from '../redax/auth/auth-selector';
 import { ToastContainer } from 'react-toastify';
