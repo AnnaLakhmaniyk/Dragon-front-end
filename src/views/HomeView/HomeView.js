@@ -28,24 +28,34 @@ export const DragonView = () => {
               <h2 className={s.name}>{dragon.name}</h2>
               <p>{dragon.first_flight}</p>
             </div>
-            <div className={s.btn}>
-              <KeyboardDoubleArrowLeftIcon
+            <div className={s.wrapBtn}>
+              <button
+                type="button"
+                className={s.button}
                 onClick={() => setPage(0)}
-                color="action"
-                size="20"
-              />
-              <KeyboardDoubleArrowRightIcon
+              >
+                <KeyboardDoubleArrowLeftIcon size="20" className={s.arrowBtn} />
+              </button>
+
+              <button
+                type="button"
+                className={s.button}
                 onClick={() => setPage(1)}
-                color="action"
-                size="20"
-              />
+              >
+                <KeyboardDoubleArrowRightIcon
+                  size="20"
+                  className={s.arrowBtn}
+                />
+              </button>
             </div>
           </div>
 
           <ImageSwiper images={images} />
           <div className={s.downComponent}>
-            <div>
-              <a href={dragon.wikipedia}>wikipedia</a>
+            <div className={s.textWikipedia}>
+              <a href={dragon.wikipedia} className={s.textWikipedia}>
+                wikipedia
+              </a>
             </div>
             <BtnOpenModal
               description={dragon.description}
