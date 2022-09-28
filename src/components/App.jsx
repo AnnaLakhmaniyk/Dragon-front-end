@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Suspense, useEffect } from 'react';
+import { Suspense, useEffect, lazy } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCurrentUser } from '../redax/auth/auth-operations';
 import { getLoder } from '../redax/auth/auth-selector';
@@ -8,11 +8,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import PublicRoute from './Routes/PublicRoute';
 import PrivateRoute from './Routes/PrivateRoute';
-import Header from './Header/Header';
-import AuthView from '../views/AuthView/AuthView';
-import DragonView from '../views/HomeView/HomeView';
-import DragonPageInfo from './DragonPageInfo/DragonPageInfo';
-import Loader from './Loder/Loder';
+import Loader from './Loader/Loder';
+
+const Header = lazy(() => import('./Header/Header'));
+const AuthView = lazy(() => import('../views/AuthView/AuthView'));
+const HomeView = lazy(() => import('../views/HomeView/HomeView'));
+const DragonPageInfo = lazy(() => import('./DragonPageInfo/DragonPageInfo'));
 
 export const App = () => {
   const isLoder = useSelector(getLoder);
@@ -40,7 +41,7 @@ export const App = () => {
             path="/home"
             element={
               <PrivateRoute>
-                <DragonView />
+                <HomeView />
               </PrivateRoute>
             }
           />
