@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { register, logIn } from '../../redax/auth/auth-operations';
 import { toast } from 'react-toastify';
 import { Container } from '../../components/Container/Container';
-import { useGoogleLogin } from '@react-oauth/google';
 import s from './AuthView.module.css';
 const errorState = {
   emailError: 'This is a required field',
@@ -140,30 +139,10 @@ export default function AuthView() {
     toast.success(`wellcom  ${email?.split('@')[0]} and now log in`);
   };
 
-  const login = useGoogleLogin({
-    onSuccess: async ({ code }) => {
-      console.log(code);
-      // googleLogin({ code })
-      //   .unwrap()
-      //   .then(data => {
-      //     dispatch(setUser(data));
-      //   })
-      //   .catch(data => {
-      //     toast.error(data.message, {
-      //       position: toast.POSITION.TOP_RIGHT,
-      //     });
-      //   });
-    },
-    flow: 'auth-code',
-  });
-
   return (
     <Container>
       <div className={s.auth}>
         <form className={s.form}>
-          <button type="button" onClick={login}>
-            gcfcaghsjdhfljksdfg
-          </button>
           <p className={s.text}>
             Or log in using an email and password, after registering:
           </p>
